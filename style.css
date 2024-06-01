@@ -106,6 +106,14 @@ button {
   background-color: #0056b3;
 }
 
+.reload-btn{
+  display: none;
+}
+
+.reload-btn:hover{
+  background-color: #ccc;
+}
+
 /* Part dunamic class */
 .complete-todo {
   color: #aaa;
@@ -115,6 +123,10 @@ button {
   text-decoration: line-through;
 }
 
-.complete-todo .group-action{
+.complete-todo>.group-action>.complete-btn, .complete-todo>.group-action>.edit-btn, .complete-todo>.group-action>.delete-btn{
   display: none;
+}
+
+.complete-todo>.group-action>.reload-btn{
+  display: block;
 }
