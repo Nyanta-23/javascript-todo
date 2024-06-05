@@ -23,7 +23,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-.input-container {
+.input-container-add {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -86,32 +86,60 @@ button {
   background-color: #28a745;
 }
 
-.edit-btn:hover{
+.edit-btn:hover {
   background-color: #218838;
 }
 
-.delete-btn{
+.delete-btn {
   background-color: #dc3545;
 }
 
-.delete-btn:hover{
+.delete-btn:hover {
   background-color: #c82333;
 }
 
-.complete-btn{
+.complete-btn {
   background-color: #007bff;
 }
 
-.complete-btn:hover{
+.complete-btn:hover {
   background-color: #0056b3;
 }
 
-.reload-btn{
+.reload-btn {
   display: none;
 }
 
-.reload-btn:hover{
+.reload-btn:hover {
   background-color: #ccc;
+}
+
+.input-container-edit {
+  display: none;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.input-container-edit button {
+  margin: 0 5px;
+  padding: 0 10px;
+}
+
+#acceptEdit-btn {
+  color: #fff;
+  background-color: #28a745;
+}
+
+#acceptEdit-btn:hover {
+  background-color: #218838;
+}
+
+#cancel-btn {
+  background-color: #eee;
+}
+
+#cancel-btn:hover {
+  background-color: #eaeaea;
 }
 
 /* Part dunamic class */
@@ -119,14 +147,32 @@ button {
   color: #aaa;
 }
 
-.complete-todo>span{
+.complete-todo > span {
   text-decoration: line-through;
 }
 
-.complete-todo>.group-action>.complete-btn, .complete-todo>.group-action>.edit-btn, .complete-todo>.group-action>.delete-btn{
+.complete-todo > .group-action > .complete-btn,
+.complete-todo > .group-action > .edit-btn,
+.complete-todo > .group-action > .delete-btn {
   display: none;
 }
 
-.complete-todo>.group-action>.reload-btn{
+.complete-todo > .group-action > .reload-btn {
   display: block;
+}
+
+.container-hidden {
+  display: none !important;
+}
+
+.container-display {
+  display: flex;
+}
+
+.hidden-edit{
+  color: #aaa !important;
+}
+
+.hidden-edit > .group-action {
+  display: none !important;
 }

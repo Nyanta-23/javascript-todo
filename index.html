@@ -9,14 +9,19 @@
   <body>
     <div class="container">
       <h1>To-Do List</h1>
-      <div class="input-container">
+      <div class="input-container-edit">
+        <input type="text" id="todo-edit" placeholder="Edit a task..." />
+        <button id="acceptEdit-btn">Edit</button>
+        <button id="cancel-btn">❌</button>
+      </div>
+      <div class="input-container-add">
         <input type="text" id="todo-input" placeholder="Add a new task..." />
         <button id="add-btn">Add</button>
       </div>
-      <ul id="todo-list">
-      </ul>
+      <ul id="todo-list"></ul>
     </div>
   </body>
 
   <script src="script.js"></script>
-</html>
+  </html>
+  
