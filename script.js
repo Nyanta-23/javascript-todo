@@ -1,11 +1,9 @@
 
-const storage = [
+let storage = [];
 
-];
 const todoLists = document.getElementById("todo-list");
 
 render();
-
 
 function render() {
   todoLists.innerHTML = "";

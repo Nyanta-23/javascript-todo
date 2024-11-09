@@ -10,7 +10,7 @@ body {
   height: 100vh;
 }
 
-.container {
+.wrapper {
   background-color: #ffff;
   padding: 20px;
   border-radius: 8px;
@@ -19,8 +19,17 @@ body {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.container {
+  margin-top: 30px;
+  border-top: 1px solid #00000059;
+}
+
+h2{
+  margin: 0;
+}
+
 h1 {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .input-container-add {
