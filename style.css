@@ -10,6 +10,10 @@ body {
   height: 100vh;
 }
 
+.text-not-assignment{
+  text-align: center;
+}
+
 .wrapper {
   background-color: #ffff;
   padding: 20px;

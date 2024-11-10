@@ -6,7 +6,15 @@ const todoLists = document.getElementById("todo-list");
 render();
 
 function render() {
+
+  console.log(storage)
+
   todoLists.innerHTML = "";
+
+
+  if (storage == 0) {
+    todoLists.innerHTML = "<p>Tidak ada tugas</p>";
+  }
 
   storage.map((element, index) => {
 
@@ -16,16 +24,13 @@ function render() {
     reloadButton(element.id, index);
     deleteButton(element.id, index);
 
-    
-
-
     document.getElementsByClassName("edit-btn")[index].addEventListener("click", ((e) => {
+
       const parent = e.target.parentElement;
       const todoLi = parent.parentElement;
       todoLi.classList.add("hidden-edit");
       getTodo(element.id);
     }));
-
 
     cancelButton();
 
@@ -36,18 +41,31 @@ function render() {
 
 (function addTodo() {
   document.getElementById("add-btn").addEventListener("click", () => {
-    storage.push({
+
+    let data = {
       id: Date.now(),
       todo: document.getElementById("todo-input").value,
       isCompleted: false
-    });
+    }
+
+    if (data.id == undefined || data.isCompleted == undefined || data.todo == 0) {
+      return alert('Gagal memasukkan data!');
+    }
+
+    storage.push(data);
+
     render();
   });
 })();
 
 function deleteTodo(id) {
+  if (id == undefined || id == 0) {
+    return alert('Gagal menghapus data');
+  }
+
   const filter = storage.filter((todo) => todo.id != id);
-  storage = filter;
+  console.log(filter);
+  // storage = filter;
 
   render();
 }
@@ -59,19 +77,7 @@ function isCompleted(index) {
   render();
 }
 
-function cancelEdit() {
-  const addContainer = document.getElementsByClassName("input-container-add")[0];
-  const editContainer = document.getElementsByClassName("input-container-edit")[0];
 
-  addContainer.classList.remove("container-hidden");
-  editContainer.classList.remove("container-display");
-
-  const groupBtn = Array.from(document.getElementsByTagName("li"));
-
-  groupBtn.forEach(e => {
-    e.classList.remove("hidden-edit");
-  });
-}
 // Function
 
 
@@ -115,11 +121,32 @@ function getTodo(index) {
 
 }
 
+
+function cancelEdit() {
+  const addContainer = document.getElementsByClassName("input-container-add")[0];
+  const editContainer = document.getElementsByClassName("input-container-edit")[0];
+
+  addContainer.classList.remove("container-hidden");
+  editContainer.classList.remove("container-display");
+
+  const groupBtn = Array.from(document.getElementsByTagName("li"));
+
+  groupBtn.forEach(e => {
+    e.classList.remove("hidden-edit");
+  });
+}
+
 function editTodo(id) {
   document.getElementById("acceptEdit-btn").addEventListener("click", () => {
-    const todo = storage.find(todo => todo.id == id);
 
-    todo.todo = document.getElementById("todo-edit").value;
+    const editTodo = document.getElementById('todo-edit').value;
+
+    storage.find((todo, index) => {
+      if (todo.id == id) {
+        storage[index].todo = editTodo;
+      }
+    });
+
 
     cancelEdit();
     render();
